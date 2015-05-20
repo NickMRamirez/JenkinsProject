@@ -6,7 +6,9 @@ Vagrant.configure(2) do |config|
   number_of_servers = 1
 
   number_of_servers.times do |number|
-    config.vm.define 'buildserver' do |server|
+    puts "Creating build server #{number}"
+
+    config.vm.define "buildserver#{number}" do |server|
       server.vm.box = 'ubuntu/trusty32'
       server.vm.hostname = "buildserver#{number}"
       server.vm.network 'private_network', type: 'dhcp'
